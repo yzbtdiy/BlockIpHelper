@@ -80,3 +80,11 @@ target 为 10000 条测试数据, 仅需1秒左右即可完成分类并生成对
 2023/08/15 11:26:49 #############################################################
 2023/08/15 11:26:49 本次处理10000个地址, 耗时1.0198589s
 ```
+
+### 使用的第三方库
+
+* [Gorm](https://github.com/go-gorm/gorm)
+
+* [Sqlite](https://github.com/glebarez/sqlite)
+
+* [ip2region](https://github.com/lionsoul2014/ip2region)
