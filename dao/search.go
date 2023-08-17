@@ -40,7 +40,8 @@ func GetWhiteList() (subnetsList []string, addrList []string) {
 		}
 		return subnetsList, addrList
 	} else {
-		log.Println("读取白名单失败或者白名单为空")
+		log.Println("#############################################################")
+		log.Println("当前白名单为空, 若存在白名单地址请导入")
 		return nil, nil
 	}
 }
