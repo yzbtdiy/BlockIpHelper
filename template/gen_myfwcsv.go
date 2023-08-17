@@ -3,13 +3,16 @@ package template
 import (
 	"encoding/csv"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/yzbtdiy/BlockIpHelper/models"
 )
 
-// 生成明御防火墙黑名单模板
-func GenerageMyFwCSVFile(inCns, notInCns []models.IpAndRegion, path string) {
+// 生成明御防火墙黑名单导入文件
+func GenerateMyFwCSVFile(inCns, notInCns []models.IpAndRegion, path string) {
+	log.Println("开始生成明御防火墙黑名单导入文件, 保存到 " + path)
+	log.Println("#############################################################")
 	f, err := os.Create(path)
 	if err != nil {
 		fmt.Println("文件创建失败")

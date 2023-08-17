@@ -3,13 +3,16 @@ package template
 import (
 	"encoding/csv"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/yzbtdiy/BlockIpHelper/models"
 )
 
-// 生成k01黑名单配置模板
-func GenerageK01CSVFile(inCns, notInCns []models.IpAndRegion, path string) {
+// 生成k01黑名单导入文件
+func GenerateK01CSVFile(inCns, notInCns []models.IpAndRegion, path string) {
+	log.Println("开始生成k01黑名单导入文件, 保存到 " + path)
+	log.Println("#############################################################")
 	f, err := os.Create(path)
 	if err != nil {
 		fmt.Println("文件创建失败")

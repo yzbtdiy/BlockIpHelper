@@ -81,3 +81,20 @@ func CheckPath(pathStr string) bool {
 		}
 	}
 }
+
+func CheckConfig(pathStr string) (*models.Config, error) {
+	s, err := os.Stat(pathStr)
+	if err != nil {
+		log.Println("配置文件不存在, 生成默认配置, 请检查配置后重新运行")
+		GenerateConfig()
+		os.Exit(0)
+		return nil, nil
+	} else {
+		if !s.IsDir() {
+			conf := GetConfig(pathStr)
+			return &conf, nil
+		} else {
+			return nil, nil
+		}
+	}
+}

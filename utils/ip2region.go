@@ -12,14 +12,13 @@ import (
 
 // 简单处理纯真地址source.txt转为ip_merge.txt
 // 仅仅通过包含省市名称来判断国内国外地址, 然后将区域信息整体存入
-func GenIp2RegionMergeFile(srcFile, dstFile, chinaKeysFile string) {
+func GenIp2RegionMergeFile(srcFile, dstFile string, cnProvince []string) {
 	IpLibs, _ := ReadTxt(srcFile)
 	var mergeArry []string
 	for _, row := range IpLibs {
 		reg := regexp.MustCompile(`\s+`)
 		infoArr := reg.Split(row, -1)
 		regionInfo := strings.Join(infoArr[2:], "")
-		cnProvince, _ := ReadTxt(chinaKeysFile)
 		var regionArry [5]string
 		for _, provi := range cnProvince {
 			if strings.Contains(regionInfo, provi) {

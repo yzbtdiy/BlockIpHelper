@@ -1,0 +1,53 @@
+target_file: ./target.txt
+in_white_list: ./data/whitelist.txt
+export_file:
+    in_whitelist: ./白名单IP.txt
+    in_china: ./国内攻击IP.txt
+    out_china: ./国外攻击IP.txt
+template:
+    - name: k01
+      enable: true
+      export_path: ./k01Block.csv
+    - name: myfw
+      enable: true
+      export_path: ./myFwBlock.csv
+ip2region:
+    cz_source: ./data/source.txt
+    merge_file: ./data/ip_merge.txt
+    xdb_file: ./data/ip2region.xdb
+    cn_keys:
+        - 中国
+        - 北京
+        - 广东
+        - 山东
+        - 江苏
+        - 河南
+        - 上海
+        - 河北
+        - 浙江
+        - 香港
+        - 陕西
+        - 湖南
+        - 重庆
+        - 福建
+        - 天津
+        - 云南
+        - 四川
+        - 广西
+        - 安徽
+        - 海南
+        - 江西
+        - 湖北
+        - 山西
+        - 辽宁
+        - 台湾
+        - 黑龙江
+        - 内蒙古
+        - 澳门
+        - 贵州
+        - 甘肃
+        - 青海
+        - 新疆
+        - 西藏
+        - 吉林
+        - 宁夏
