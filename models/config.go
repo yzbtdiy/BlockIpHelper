@@ -2,7 +2,7 @@ package models
 
 type Config struct {
 	TargetFile string         `yaml:"target_file"`
-	WhiteFile  string         `yaml:"in_white_list"`
+	WhiteFile  string         `yaml:"white_list"`
 	ExportFile ExportFileConf `yaml:"export_file"`
 	Template   []TemplateConf `yaml:"template"`
 	Ip2Region  Ip2RegionConf  `yaml:"ip2region"`

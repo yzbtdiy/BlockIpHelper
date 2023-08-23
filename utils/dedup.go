@@ -23,10 +23,8 @@ func GetChoice() bool {
 
 // 数组去重
 func RemoveDuplicates(arr []string) []string {
-	// 创建一个 map 来记录元素是否已经出现过
 	seen := make(map[string]bool)
 	result := []string{}
-	// 遍历数组，将未出现过的元素添加到结果切片中
 	for _, addr := range arr {
 		if !seen[addr] {
 			result = append(result, addr)

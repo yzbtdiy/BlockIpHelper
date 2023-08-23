@@ -28,8 +28,6 @@
 
 * `-imp white` 可以导入 whitelist.txt 内白名单地址
 
-* `-gen source` 可以将纯真IP导出的 source.txt 转化为 ip_source.txt
-
 * `-gen merge` 可以将纯真IP导出的 source.txt 转化为 ip_merge.txt
 
 * `-gen xdb` 可以将上述生成的 ip_merge.txt文 件转化为 ip2region.xdb 文件
@@ -58,7 +56,7 @@ Usage of D:\mycode\BlockIpHelper\BlockIpHelper.exe:
 
 #### 运行后自动分类白名单, 国内攻击, 国外攻击, 生成对应 txt 文件
 
-使用本地 ip2region.xdb 数据库判断归属地, 归属地离线数据来源于纯真IP社区版(2023.08.16)
+使用本地 ip2region.xdb 数据库判断归属地, 归属地离线数据来源于纯真IP社区版(2023.08.23)
 
 target.txt 为 10000 条测试数据, 1秒内极速分类
 

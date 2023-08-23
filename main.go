@@ -67,8 +67,8 @@ func main() {
 		// 调用ip2region获取IP归属地
 		inCns, notInCns := utils.FilterCn(needBlocks, config.Ip2Region.XdbFile)
 		// 国内地址和国外地址拆分存储
-		utils.WriteIpAndMaskFile(inCns, config.ExportFile.InChina)
-		utils.WriteIpAndMaskFile(notInCns, config.ExportFile.OutCina)
+		utils.WriteIpToFile(inCns, config.ExportFile.InChina)
+		utils.WriteIpToFile(notInCns, config.ExportFile.OutCina)
 		log.Println("#############################################################")
 		log.Println("白名单IP , 国内攻击IP, 国外攻击IP 分类完成, 请查看对应txt文件")
 		log.Println("#############################################################")

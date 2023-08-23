@@ -31,7 +31,7 @@ func GenerateK01CSVFile(inCns, notInCns []models.IpAndRegion, path string) {
 	writer.Flush()
 }
 
-// k01模板限制20个字符, 对区域信息截取20个字符
+// k01模板备注限制20个字符, 对区域信息截取20个字符
 func K01Len20(region string) (regSlice string) {
 	regRune := []rune(region)
 	if len(regRune) > 20 {

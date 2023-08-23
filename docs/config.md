@@ -6,7 +6,7 @@
 # 需要筛选分类的地址列表文件, 一行一个地址
 target_file: ./target.txt     
 # 白名单列表, 可以是单个地址, 也可以是CIDR, 用 / 分割掩码
-in_white_list: ./data/whitelist.txt
+white_list: ./data/whitelist.txt
 # 处理完成后导出文件
 export_file:
     # 白名单匹配到的地址

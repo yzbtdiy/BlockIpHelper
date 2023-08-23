@@ -11,7 +11,7 @@ import (
 )
 
 // 简单处理纯真地址source.txt转为ip_merge.txt
-// 仅仅通过包含省市名称来判断国内国外地址, 然后将区域信息整体存入
+// 仅通过是否包含省市名称来区分国内地址与国外地址, 然后将区域信息整体保存
 func GenIp2RegionMergeFile(srcFile, dstFile string, cnProvince []string) {
 	IpLibs, _ := ReadTxt(srcFile)
 	var mergeArry []string
@@ -42,7 +42,7 @@ func GenIp2RegionMergeFile(srcFile, dstFile string, cnProvince []string) {
 }
 
 // 生成ip2region xdb文件
-// 代码片段来自https://github.com/lionsoul2014/ip2region/blob/master/maker/golang/main.go
+// 代码来自https://github.com/lionsoul2014/ip2region/blob/master/maker/golang/main.go
 func GenIp2RegionXdbFile(srcFile, dstFile string) {
 	tStart := time.Now()
 	var err error

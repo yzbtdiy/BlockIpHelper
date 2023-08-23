@@ -1,5 +1,5 @@
 target_file: ./target.txt
-in_white_list: ./data/whitelist.txt
+white_list: ./data/whitelist.txt
 export_file:
     in_whitelist: ./白名单IP.txt
     in_china: ./国内攻击IP.txt

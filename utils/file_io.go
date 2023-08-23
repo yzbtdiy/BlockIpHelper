@@ -18,20 +18,19 @@ func ReadTxt(path string) ([]string, error) {
 	}
 	defer file.Close()
 	buf := bufio.NewScanner(file)
-	// 循环读取
 	var lineArr []string
 	for {
 		if !buf.Scan() {
-			break //文件读完了,退出for
+			break
 		}
-		line := strings.TrimSpace(buf.Text()) //获取每一行
+		line := strings.TrimSpace(buf.Text())
 		lineArr = append(lineArr, line)
 	}
 	return lineArr, nil
 }
 
 // 保存IP和区域信息到文件
-func WriteIpAndMaskFile(dataArr []models.IpAndRegion, path string) error {
+func WriteIpToFile(dataArr []models.IpAndRegion, path string) error {
 	f, err := os.Create(path)
 	if err != nil {
 		fmt.Printf("创建文件失败: %v\n", err)
@@ -40,7 +39,7 @@ func WriteIpAndMaskFile(dataArr []models.IpAndRegion, path string) error {
 	defer f.Close()
 	w := bufio.NewWriter(f)
 	for _, v := range dataArr {
-		fmt.Fprintln(w, v.Ip+"/32"+" "+v.Region)
+		fmt.Fprintln(w, v.Ip+" "+v.Region)
 	}
 	return w.Flush()
 }
@@ -62,6 +61,7 @@ func WriteFile(dataArr []string, path string) error {
 	return w.Flush()
 }
 
+// 检查路径目录是否存在
 func CheckPath(pathStr string) bool {
 	s, err := os.Stat(pathStr)
 	if err != nil {
@@ -82,6 +82,7 @@ func CheckPath(pathStr string) bool {
 	}
 }
 
+// 检查配置文件, 不存在自动生成配配置并退出
 func CheckConfig(pathStr string) (*models.Config, error) {
 	s, err := os.Stat(pathStr)
 	if err != nil {

@@ -9,6 +9,7 @@ import (
 	"github.com/yzbtdiy/BlockIpHelper/models"
 )
 
+// 读取配置文件, 返回结构体
 func GetConfig(path string) (config models.Config) {
 	content, err := os.ReadFile(path)
 	if err != nil {
@@ -21,6 +22,7 @@ func GetConfig(path string) (config models.Config) {
 	return config
 }
 
+// 生成默认配置文件
 func GenerateConfig() {
 	config := models.Config{
 		TargetFile: "./target.txt",

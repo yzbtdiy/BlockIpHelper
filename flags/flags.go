@@ -9,11 +9,13 @@ import (
 	"github.com/yzbtdiy/BlockIpHelper/utils"
 )
 
+// 文件导入flag选项
 var importFlag = flag.String("imp", "",
 	`white   导入白名单(./data/whitelist.txt)`)
 
 // black   导入黑名单(./data/blacklist.txt)`)
 
+// 文件生成flag选项
 var generateFlag = flag.String("gen", "",
 	`merge   纯真IP源文件(./data/source.txt)生成的xdb源文件(./data/ip_merge.txt)
 xdb     xdb源文件(./data/ip_merge.txt)生成ip2region的xdb文件(./data/ip2region.xdb)`)
