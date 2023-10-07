@@ -18,6 +18,7 @@ func init() {
 }
 
 func main() {
+	// 读取配置文件
 	config, err := utils.CheckConfig("./data/config.yaml")
 	if err != nil {
 		log.Fatal("读取配置文件异常, 请检查")

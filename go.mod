@@ -6,6 +6,7 @@ require (
 	github.com/glebarez/sqlite v1.9.0
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20230731060429-6ed8bf011875
 	github.com/lionsoul2014/ip2region/maker/golang v0.0.0-20230731060429-6ed8bf011875
+	golang.org/x/text v0.13.0
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/gorm v1.25.3
 )

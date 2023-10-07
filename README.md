@@ -1,8 +1,9 @@
 # BlockIpHelper
 
-自用工具, 生成某些安全设备批量封禁IP的csv文件
+* 自用工具, 用于地址分类和生成csv文件, 无其他用途
 
-本工具仅用于地址分类和生成csv文件, 无其他用途
+* 地址库使用纯真IP社区版, 地址纠错请反馈给[纯真IP](https://update.cz88.net/review)
+
 
 ### 功能
 
@@ -28,17 +29,17 @@
 
 * `-imp white` 可以导入 whitelist.txt 内白名单地址
 
-* `-gen merge` 可以将纯真IP导出的 source.txt 转化为 ip_merge.txt
+* `-gen merge` 可以将纯真IP解压得到的 qqwry.txt 转化为 ip_merge.txt
 
-* `-gen xdb` 可以将上述生成的 ip_merge.txt文 件转化为 ip2region.xdb 文件
+* `-gen xdb` 可以将上述生成的 ip_merge.txt 文件转化为 ip2region.xdb 文件
 
 ```cmd
-.\BlockIpHelper.exe -imp
+.\BlockIpHelper.exe -h
 
 flag needs an argument: -imp
 Usage of D:\mycode\BlockIpHelper\BlockIpHelper.exe:
   -gen string
-        merge   纯真IP源文件(./data/source.txt)生成的xdb源文件(./data/ip_merge.txt)
+        merge   纯真IP解压文件(./data/qqwry.txt)生成的xdb源文件(./data/ip_merge.txt)
         xdb     xdb源文件(./data/ip_merge.txt)生成ip2region的xdb文件(./data/ip2region.xdb)
   -imp string
         white   导入白名单(./data/whitelist.txt)

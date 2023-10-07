@@ -28,8 +28,8 @@ template:
       export_path: ./myFwBlock.csv
 # ip2region相关配置
 ip2region:
-    # 纯真IP库导出的 source.txt 文件, 需要手动转为utf-8编码
-    cz_source: ./data/source.txt
+    # 纯真IP解压得到的 qqwry.txt 文件
+    cz_txt: ./data/qqwry.txt
     # 纯真IP库转化为 ip_merge.txt 文件的保存位置
     merge_file: ./data/ip_merge.txt
     # 生成的xdb文件保存位置

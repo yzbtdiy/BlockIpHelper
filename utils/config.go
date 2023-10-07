@@ -34,7 +34,7 @@ func GenerateConfig() {
 		},
 		Template: []models.TemplateConf{{Name: "k01", Enable: true, ExportPath: "./k01Block.csv"}, {Name: "myfw", Enable: true, ExportPath: "./myFwBlock.csv"}},
 		Ip2Region: models.Ip2RegionConf{
-			CzSource:  "./data/source.txt",
+			CzTxt:  "./data/qqwry.txt",
 			MergeFile: "./data/ip_merge.txt",
 			XdbFile:   "./data/ip2region.xdb",
 			CnKeys: []string{"中国",

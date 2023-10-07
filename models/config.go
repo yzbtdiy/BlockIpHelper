@@ -19,8 +19,9 @@ type TemplateConf struct {
 	Enable     bool   `yaml:"enable"`
 	ExportPath string `yaml:"export_path"`
 }
+
 type Ip2RegionConf struct {
-	CzSource  string   `yaml:"cz_source"`
+	CzTxt     string   `yaml:"cz_txt"`
 	MergeFile string   `yaml:"merge_file"`
 	XdbFile   string   `yaml:"xdb_file"`
 	CnKeys    []string `yaml:"cn_keys"`

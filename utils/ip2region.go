@@ -3,12 +3,46 @@ package utils
 import (
 	"fmt"
 	"log"
+	"os"
 	"regexp"
 	"strings"
 	"time"
 
 	"github.com/lionsoul2014/ip2region/maker/golang/xdb"
+	"golang.org/x/text/encoding/simplifiedchinese"
 )
+
+// 纯真IP数据替换部分字符串, 删除空行
+func qqwryRepalce(srcCon []byte) string {
+	utf8Str := strings.Replace(string(srcCon), "  CZ88.NET", "", -1)
+	reSumInfo := regexp.MustCompile(`IP数据库共有数据\s\S\s\d+\s条`)
+	reBlankRow := regexp.MustCompile(`^\s*$[\r\n]*|[\r\n]+\s+\r*$`)
+	reSumInfo.FindAllStringIndex(utf8Str, -1)
+	noSumInfo := reSumInfo.ReplaceAllString(utf8Str, "")
+	noBlankRow := reBlankRow.ReplaceAllString(noSumInfo, "")
+	return noBlankRow
+}
+
+// 纯真IP导出的TXT编码格式为GB2312, 使用GB18030解码, UTF8重新编码
+func ConventUtf8(qqwryTxt string) {
+	fileBytes, err := os.ReadFile(qqwryTxt)
+	if err != nil {
+		fmt.Println("文件读取失败: ", err)
+		os.Exit(1)
+	}
+	utf8Bytes, conErr := simplifiedchinese.GB18030.NewDecoder().Bytes(fileBytes)
+	if err != nil {
+		fmt.Println("编码转化失败: ", conErr)
+		os.Exit(1)
+	}
+	utf8Strings := qqwryRepalce(utf8Bytes)
+	wErr := os.WriteFile("./data/source.txt", []byte(utf8Strings), os.ModePerm)
+	if wErr != nil {
+		fmt.Println("文件保存失败: ", wErr)
+		os.Exit(1)
+	}
+	fmt.Println("文件转化完成")
+}
 
 // 简单处理纯真地址source.txt转为ip_merge.txt
 // 仅通过是否包含省市名称来区分国内地址与国外地址, 然后将区域信息整体保存
@@ -39,6 +73,7 @@ func GenIp2RegionMergeFile(srcFile, dstFile string, cnProvince []string) {
 	if err != nil {
 		fmt.Println(err)
 	}
+	fmt.Println("已生成ip_merge.txt")
 }
 
 // 生成ip2region xdb文件
@@ -69,6 +104,6 @@ func GenIp2RegionXdbFile(srcFile, dstFile string) {
 	if err != nil {
 		fmt.Printf("failed End: %s\n", err)
 	}
-
 	log.Printf("Done, elapsed: %s\n", time.Since(tStart))
+	fmt.Println("已生成ip2region.xdb")
 }
